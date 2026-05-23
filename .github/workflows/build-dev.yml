@@ -46,10 +46,10 @@ jobs:
           - riscv64_riscv64
           - x86_64
         tag:
-          - openwrt-23.05
+          - openwrt-25.12
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -66,8 +66,8 @@ jobs:
           echo "curl_version=$curl_version" >> "$GITHUB_ENV"
           # depends
           git clone https://github.com/sbwml/package_libs_nghttp3 nghttp3
-          # openssl 3.2
-          git clone https://github.com/sbwml/package_libs_openssl -b openssl-3.2 openssl
+          # openssl 3.5
+          git clone https://github.com/sbwml/package_libs_openssl -b openssl-3.5 openssl
 
       - name: Build Packages
         uses: sbwml/openwrt-gh-action-sdk@curl
